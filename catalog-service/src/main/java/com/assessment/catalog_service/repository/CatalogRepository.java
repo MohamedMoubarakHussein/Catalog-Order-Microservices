@@ -10,5 +10,4 @@ import com.assessment.catalog_service.entity.Product;
 @Repository
 public interface CatalogRepository extends CrudRepository<Product , Integer> {
     public List<Product> findAll();
-    public Product findById(int id);
 }

@@ -3,6 +3,7 @@ package com.assessment.catalog_service.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.assessment.catalog_service.entity.CreateOrderEvent;
@@ -18,12 +19,17 @@ public class CatalogService {
     private final CatalogRepository catalogRepository;
 
 
-    public List<Product> getAllProducts() {
-       return this.catalogRepository.findAll();
+    public ResponseEntity<List<Product>> getAllProducts() {
+       return ResponseEntity.ok().body(this.catalogRepository.findAll());
     }
 
-    public Product getProductById(int id) {
-        return this.catalogRepository.findById(id);
+    public ResponseEntity<Product> getProductById(int id) {
+         Optional<Product> opProduct = this.catalogRepository.findById(id);
+         if(opProduct.isPresent()) {
+            return ResponseEntity.ok().body(opProduct.get());
+         } else {
+            return ResponseEntity.notFound().build();
+         }
     }
 
     public void updateProduct(CreateOrderEvent order) {
