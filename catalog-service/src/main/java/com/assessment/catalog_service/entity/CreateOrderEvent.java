@@ -2,8 +2,11 @@ package com.assessment.catalog_service.entity;
 
 import lombok.Data;
 
+
 @Data
 public class CreateOrderEvent {
-    private Integer id;
-    private double stock;
+    private String orderId;
+    private Integer productId;
+    private double quantity;
+    private Long timestamp; 
 }

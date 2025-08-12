@@ -33,10 +33,10 @@ public class CatalogService {
     }
 
     public void updateProduct(CreateOrderEvent order) {
-        Optional<Product> opProduct = this.catalogRepository.findById(order.getId());
+        Optional<Product> opProduct = this.catalogRepository.findById(order.getProductId());
         if(opProduct.isPresent()) {
             Product product = opProduct.get();
-            product.setStock(product.getStock() - order.getStock());
+            product.setStock(product.getStock() - order.getQuantity());
             if(product.getStock() < 0) {
                 return;
             }
