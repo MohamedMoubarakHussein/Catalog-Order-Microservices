@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: catalog-service
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: admin
+    password: 123456
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: catalog-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
