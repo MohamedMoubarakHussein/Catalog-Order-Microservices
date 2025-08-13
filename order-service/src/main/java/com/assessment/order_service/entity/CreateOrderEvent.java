@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class CreateOrderEvent {
-    private String orderId;
+    private Integer orderId;
     private Integer productId;
     private double quantity;
     private Long timestamp; 
