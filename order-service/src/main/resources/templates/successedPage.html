@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Success</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+
+<h1>Order Successful!</h1>
+
+<div class="order-details">
+    <h1>Order Summary</h1>
+
+    <p>Order ID: <span th:text="${order.orderId}"></span></p>
+    <p>Product ID: <span th:text="${order.productId}"></span></p>
+    <p>Product Name: <span th:text="${order.productName}"></span></p>
+    <p>Quantity: <span th:text="${order.quantity}"></span></p>
+    <p>unit price: <span th:text="${order.unitPrice}"></span></p>
+    <p>Total Price: $<span th:text="${order.unitPrice * order.quantity}"></span></p>
+
+    <hr/>
+    <h2>Event Info (from orderEvent)</h2>
+    <p>Event Order ID: <span th:text="${orderEvent.orderId}"></span></p>
+    <p>Timestamp: <span th:text="${orderEvent.timestamp}"></span></p>
+
+</div>
+
+<a href="/">Back to Products</a>
+
+</body>
+</html>
