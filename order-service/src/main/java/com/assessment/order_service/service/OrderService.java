@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.assessment.order_service.entity.CreateOrderEvent;
@@ -18,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Service
 public class OrderService {
     private final EventProducer eventProducer;
     private final OrderRepository orderRepository;
@@ -42,7 +44,7 @@ public class OrderService {
 
     public List<Product> getProducts() {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8080/products";
+        String url = "http://localhost:8080/catalog/products";
         Product[] productsArray = restTemplate.getForObject(url, Product[].class);
         return Arrays.asList(productsArray);
     }
