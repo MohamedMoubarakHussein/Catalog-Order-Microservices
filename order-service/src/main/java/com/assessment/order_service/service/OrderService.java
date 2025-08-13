@@ -43,7 +43,7 @@ public class OrderService {
 
     public List<Product> getProducts() {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/catalog/products";
+        String url = "http://catalog-service:8081/catalog/products";
         Product[] productsArray = restTemplate.getForObject(url, Product[].class);
         return Arrays.asList(productsArray);
     }

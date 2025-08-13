@@ -11,8 +11,8 @@ spring:
     password: 123456
 
   kafka:
+    bootstrap-servers: kafka:9092
     consumer:
-      bootstrap-servers: localhost:9092
       group-id: catalog-service
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
